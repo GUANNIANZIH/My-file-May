@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  這段程式碼使用了 JavaScript 的 XMLHttpRequest 物件來發送一個 GET 請求到指定的 URL，並處理收到的回覆和錯誤。
+        // 創建一個新的 XMLHttpRequest 物件，用於處理 HTTP 請求。
+        const xhr = new XMLHttpRequest()
+        // 設定了請求的方法（GET）和 URL。這個方法指定了要向哪個 URL 發送請求。
+        xhr.open('get', 'http://kktix.com/events.json')
+        // xhr.open('get', 'http://192.168.211.1:3000/events.json')
+        // 收到回覆時
+        // xhr.addEventListener('load', () => {})
+        xhr.onload = () => {
+        console.log(xhr.responseText)
+        }
+        // 錯誤時
+        xhr.onerror = (error) => {
+        console.log(error)
+        }
+        // 送出
+        xhr.send()
+
+        const xhrPost = new XMLHttpRequest()
+        xhrPost.open('post','https://jsonplaceholder.typicode.com/posts')
+        // 請求
+        // 常見格式: json 資料型態傳遞、
+        xhrPost.setRequestHeader('content-type','application/json')
+        xhrPost.onload = () => {
+            console.log(xhrPost.responseText)
+        }
+        xhrPost.onerror = (error) => {
+            console.log(error)
+        }
+        xhrPost.send(JSON.stringify({
+            title:'aaa',
+            body:'bbb',
+        }))
+    </script>
+    
+</body>
+</html>

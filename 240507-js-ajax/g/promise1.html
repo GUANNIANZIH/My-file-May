@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Promise 是用於處理異步操作的機制，它代表一個異步操作的最終完成或失敗的結果。
+        // 可以使用 new Promise() 創建一個 Promise，然後使用 .then() 和 .catch() 方法來處理成功或失敗的結果。
+        
+        // Promise 用於處理異步操作的概念，當你需要進行一些需要時間的操作（例如從伺服器獲取資料、讀取檔案等）時，通常會使用異步函數或非同步操作。
+        // 一個 Promise 有三種狀態：
+        // 1.等待（Pending）：初始狀態，表示操作還在進行中。
+        // 2.已完成（Fulfilled）：操作成功完成。
+        // 3.已拒絕（Rejected）：操作失敗。
+
+        // resolve 完成、reject 拒絕
+        const pass = true
+        const getMoney = new Promise((resolve,reject)=>{
+            if(pass){
+                resolve('恭喜')
+            } else {
+                reject(new Eror('QQ'))
+            }
+        }) 
+
+        getMoney
+        // Promise resolve 時執行 .then()
+        // result 會是 resolve() 內的東西
+        // .then() 方法來指定在 Promise 完成時要執行的程式碼，使用 .catch() 方法來處理錯誤
+        .then(result => {
+            console.log(result)
+        })
+        // Promise reject 時執行 .catch()
+        // result 會是 reject() 內的東西
+        .then(error => {
+            console.log(error)
+        })
+        // 不管成估失敗都執行
+        // result 會是 resolve() 內的東西
+        .finally(() => {
+            console.log('結束')
+        })
+    </script>
+</body>
+</html>

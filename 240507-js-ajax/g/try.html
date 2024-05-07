@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. try...catch 在開發過程遇到需要處理異常或是錯誤的情況。
+        // 2. Promise、async/await 在不同情況下都提供良好的錯誤處理和異部操作。
+        
+        
+        
+        
+        
+        
+        
+        // tyr catch - 使用者登入問題、證書產生、資料寫進資料裡，例如在一步步的驗證流程控制會使用到。
+        // try...catch 構造允許程式碼在執行可能會發生錯誤的操作時進行優雅的錯誤處理，以防止錯誤影響程式的執行流程。
+        try{
+            // alertt 拼字錯誤，發生 ReferenceError，所以直接跳到 catch，不會執行 try 後面任何程式碼。
+            // 這樣可以防止錯誤影響程式的其餘部分。
+            alertt('123')
+            // 因為上一段錯誤，所以跳到 catch ，不執行
+            console.log('abc')
+
+            // 在 catch 區域，程式碼接收到一個錯誤物件'error'
+        } catch (error) {
+            // 1.錯誤的物件
+            // ReferenceError: alertt is not defined at try.html:12:13
+            console.log(error)
+            // 2.錯誤物件的 name 屬性是 ReferenceError
+            console.log(error.name)
+            // 3.錯誤的訊息:alertt is not defined
+            console.log(error.message)
+            // finally 放{}內外，結果一樣
+        } finally {
+
+        }
+        // 在 try...catch構造之外，無論 try 是否成功執行，都會執行這段程式碼。
+        console.log('abc')
+    </script>
+</body>
+</html>

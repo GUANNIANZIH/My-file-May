@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // async/awit 是 Promise 的更簡潔的語法，主要用在異部操作，讓異部程式碼看起來像同步程式碼。
+        // async 函數用於定義一個異部函數，他會返回一個 Promise。
+        // 在 async 函數內部，可以使用 await 來等待 Promise 物件的解析，這樣你就可以在程式碼中像同步的方式使用異步操作。
+        // 如一次獲取多個資料的異部操作，可以使用 async/await 來等待所有資料都獲取完成後，在進行下一步操作。
+
+        // promise 用來處理'延遲'的問題，建立等待的 promise 用來模擬跟 server 取資料的延遲
+        // ok 布林值: 根據 ok 的值來決定是解析成功的 Promise 還是拒絕的 Promise。
+        const wait = (ms,ok) => {
+            return new Promise((resolve,reject) => {
+                setTimeout(() => {
+                    if(ok){
+                        resolve('ok')
+                    } else {
+                        reject(new Error('no ok'))
+                    }
+                },ms)
+            })
+        }
+        
+        // main 函式被定義為一個異步函式，這意味著它會返回一個 Promise。
+        // async function main () {}
+        const main = async() => {
+            try{
+                // 首先輸入字元 a ，使用 await 等待 Promise，並設定 1s的延遲並成功執行。
+                console.log('a')
+                // awit 等待 promise 有結果後才繼續
+                // awit 後面只能接 promise
+                // awit 只能在 async function 裡面
+                // awit fun. 也是一種 promise
+
+                // 變數 = awit promise
+                // 變數 = promise resolve 結果
+                // promise reject 會跳到 catch
+                const result1 = await wait(1000,true)
+                // 將結果賦值給 result1
+                console.log('result1' + result1)
+                console.log('b')
+                const result2 = await wait(4000,true)
+                console.log('c')
+                const result3 = await wait(3000,true)
+                console.log('d')
+                // 如果任何一個 wait 函式拋出錯誤，則程式會跳到 catch 區塊，並輸出錯誤訊息。
+            }   catch (error){
+                console.log('catch')
+                console.log(error)
+            }
+        }
+        main()
+    </script>
+</body>
+</html>

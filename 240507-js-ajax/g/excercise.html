@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js' integrity='sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==' crossorigin='anonymous'></script>
+    <script>
+        // 一、AJAX: 在不重新載入整個網頁的情況下，從伺服器獲取資料。
+        // 二、XMLHttpRequest（XHR）：基本的 API，支援跨域請求，但有一些限制。
+        // 三、Fetch API: 一個新的 Web API，用於發送和接收 HTTP 請求和回應。
+        // 四、jQuery AJAX: 提供了一個簡潔的 API，但在大型專案中可能顯得過於冗長。
+
+
+        // - https://kktix.com/events.json 用表格印出所有活動
+        // - 限制使用 axios、async、await
+        // - 不能使用 jQ
+        // - title、summary、content、author (用 a 標籤)、published
+
+
+        axios.get('https://kktix.com/events.json')
+        .then(response => {
+            console.log(response)
+            console.log(response.data.title)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+        
+        const main = async () => {
+        try {
+            // const response = await axios.get('https://kktix.com/events.json')
+            // console.log(response.data.title)
+            const { data } = await axios.get('https://kktix.com/events.json')
+            console.log(data.title)
+        } catch (error) {
+            console.log(error)
+        }
+        }
+        main()
+
+    </script>
+</body>
+</html>

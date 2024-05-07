@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 密碼格式的驗證 -->
+    <script>
+        const validate = (input) => {
+            try{
+                // 列出所有會發生的錯誤，如果沒有錯誤就 return true。
+                // 如果在 try 區塊中發生了錯誤，則程式碼會轉到 catch 區塊。
+                if( input === undefined || input === null){
+                    // 拋出 new 錯誤
+                    throw new Error('沒有輸入內容')
+                } else if( typeof input !== 'number'){
+                    throw new Error('只接受數字')
+                    // 1~9
+                } else if(input < 1){
+                    throw new Error('數字太小')
+                } else if(input < 9){
+                    throw new Error('數字太大')
+                }
+                // 在這裡錯誤被捕獲，並且相關的訊息（錯誤名稱和錯誤訊息）被輸出到控制台。函式會返回 false，表示輸入的值未通過驗證。
+                return true
+                // 上面的 try 區塊中發生了錯誤，則程式碼會轉到 catch 區塊。
+            } catch (error){
+                console.log(error)
+                console.log(error.name)
+                console.log(error.message)
+                return false
+            }
+        } 
+        console.log(validate())
+        console.log(validate('abc'))
+        console.log(validate(123))
+        console.log(validate(3))
+    </script>
+</body>
+</html>
