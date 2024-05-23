@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navigation bar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: aliceblue;
+            font-family: '微軟正黑體';
+            font-weight: bolder;
+        }
+
+        .container {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            padding: 10px;
+            width: 95%;
+            background-color: aliceblue;
+            box-shadow: 10px 10px 5px rgb(160, 160, 160);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #left {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #left p {
+            font-size: 36px;
+        }
+
+        #right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            margin-right: 8px;
+            background-color: rgb(23, 96, 255);
+            color: white;
+            border: 1px solid rgb(23, 96, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="left">
+            <img src="./擷取.PNG" style="margin-right: 16px;">
+            <p>Simple header</p>
+        </div>
+
+        <div id="right">
+            <button>Home</button>
+            <button>Features</button>
+            <button>Pricing</button>
+            <button>FAQs</button>
+            <button>About</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
